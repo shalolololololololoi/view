@@ -22,4 +22,12 @@
         android:name="com.test.myviewpager2.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/employeePageFragment"
+        android:name="com.test.myviewpager2.EmployeePageFragment"
+        android:label="EmployeePageFragment" >
+        <action
+            android:id="@+id/action_employeePageFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
 </navigation>
