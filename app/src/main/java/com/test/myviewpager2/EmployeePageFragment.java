@@ -94,7 +94,7 @@ public class EmployeePageFragment  extends Fragment {
         this.showInGUI(this.employee);
     }
 
-    // Call where View ready.
+    // ビューの準備ができたら電話してください。
     private void showInGUI(Employee employee)  {
         this.textViewFullName.setText(employee.getFullName());
         this.textViewPosition.setText(employee.getPosition());

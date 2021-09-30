@@ -13,11 +13,11 @@ public class ZoomOutPageTransformer implements ViewPager2.PageTransformer {
         int pageHeight = view.getHeight();
 
         if (position < -1) { // [-Infinity,-1)
-            // This page is way off-screen to the left.
+            // このページは画面の左側にあります。
             view.setAlpha(0f);
 
         } else if (position <= 1) { // [-1,1]
-            // Modify the default slide transition to shrink the page as well
+            // デフォルトのスライドトランジションを変更して、ページも縮小します
             float scaleFactor = Math.max(MIN_SCALE, 1 - Math.abs(position));
             float vertMargin = pageHeight * (1 - scaleFactor) / 2;
             float horzMargin = pageWidth * (1 - scaleFactor) / 2;
@@ -27,17 +27,17 @@ public class ZoomOutPageTransformer implements ViewPager2.PageTransformer {
                 view.setTranslationX(-horzMargin + vertMargin / 2);
             }
 
-            // Scale the page down (between MIN_SCALE and 1)
+            // ページを縮小します（MIN_SCALEと1の間）
             view.setScaleX(scaleFactor);
             view.setScaleY(scaleFactor);
 
-            // Fade the page relative to its size.
+            // サイズに応じてページをフェードします。
             view.setAlpha(MIN_ALPHA +
                     (scaleFactor - MIN_SCALE) /
                             (1 - MIN_SCALE) * (1 - MIN_ALPHA));
 
         } else { // (1,+Infinity]
-            // This page is way off-screen to the right.
+            // このページは画面の右側にあります。
             view.setAlpha(0f);
         }
     }
